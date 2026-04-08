@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact & Appointments – SV Hospital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="font-opensans text-gray-800 bg-white">
+
+  <!-- Top Bar -->
+  <div class="topbar text-white text-sm py-2 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-300"></i> Rampally, Hyderabad</span>
+        <span class="flex items-center gap-1"><i class="fas fa-phone text-green-300"></i> 9876543210</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="flex items-center gap-1"><i class="fas fa-clock text-blue-300"></i> Mon–Sat: 8AM–9PM</span>
+        <a href="#" class="text-white hover:text-blue-300 transition"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white hover:text-blue-300 transition"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar sticky top-0 z-50 bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="logo-icon w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg">SV</div>
+        <div>
+          <div class="font-poppins text-xl leading-tight text-blue-900 font-bold">SV Hospital</div>
+          <div class="text-xs text-gray-500 leading-tight">Advanced Healthcare</div>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="index.html" class="nav-link font-semibold text-gray-700 hover:text-blue-700 transition font-poppins text-sm">Home</a>
+        <a href="services.html" class="nav-link font-semibold text-gray-700 hover:text-blue-700 transition font-poppins text-sm">Services</a>
+        <a href="about.html" class="nav-link font-semibold text-gray-700 hover:text-blue-700 transition font-poppins text-sm">About Us</a>
+        <a href="contact.html" class="nav-link active font-semibold text-blue-700 font-poppins text-sm">Contact</a>
+        <a href="tel:9876543210" class="emergency-btn text-white text-sm font-bold px-5 py-2 rounded-full flex items-center gap-2">
+          <i class="fas fa-phone-alt animate-pulse"></i> Emergency
+        </a>
+      </div>
+      <button id="hamburger" class="md:hidden text-gray-700 text-2xl focus:outline-none">
+        <i id="ham-icon" class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white border-t border-gray-100 px-4 pb-4">
+      <a href="index.html" class="block py-3 text-gray-700 font-semibold border-b border-gray-100 font-poppins">Home</a>
+      <a href="services.html" class="block py-3 text-gray-700 font-semibold border-b border-gray-100 font-poppins">Services</a>
+      <a href="about.html" class="block py-3 text-gray-700 font-semibold border-b border-gray-100 font-poppins">About Us</a>
+      <a href="contact.html" class="block py-3 text-blue-700 font-semibold border-b border-gray-100 font-poppins">Contact</a>
+      <a href="tel:9876543210" class="mt-3 block text-center emergency-btn text-white font-bold px-5 py-2 rounded-full"><i class="fas fa-phone-alt mr-2"></i>Emergency Call</a>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="max-w-3xl mx-auto">
+      <div class="breadcrumb text-sm mb-4 font-poppins">
+        <a href="index.html">Home</a><span>/</span><span class="text-white">Contact</span>
+      </div>
+      <h1 class="font-poppins font-extrabold text-4xl md:text-5xl mb-4">Contact & Appointments</h1>
+      <p class="text-blue-100 text-lg">Book an appointment, reach our emergency line, or simply get in touch. We're here for you.</p>
+    </div>
+  </div>
+
+  <!-- Contact Info Cards -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-8 rounded-2xl shadow-sm text-center animate-on-scroll hover:shadow-md transition-all">
+          <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe)">
+            <i class="fas fa-map-marker-alt text-2xl text-blue-600"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-lg mb-2 text-gray-900">Our Location</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Rampally, Hyderabad<br/>Telangana – 501301</p>
+          <a href="https://maps.google.com/?q=Rampally+Hyderabad" target="_blank" class="mt-4 inline-block text-blue-600 text-sm font-semibold hover:underline">Get Directions →</a>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-sm text-center animate-on-scroll hover:shadow-md transition-all">
+          <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0)">
+            <i class="fas fa-phone-alt text-2xl text-green-600"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-lg mb-2 text-gray-900">Call Us</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            General: <a href="tel:9876543210" class="text-blue-600 font-semibold hover:underline">9876543210</a><br/>
+            Emergency: <a href="tel:9876543210" class="text-red-600 font-semibold hover:underline">9876543210</a>
+          </p>
+          <div class="mt-4 text-gray-400 text-xs">Available 24/7 for emergencies</div>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-sm text-center animate-on-scroll hover:shadow-md transition-all">
+          <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#fef9c3,#fef08a)">
+            <i class="fas fa-clock text-2xl text-yellow-600"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-lg mb-2 text-gray-900">Working Hours</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Monday – Friday: 8AM – 9PM<br/>
+            Saturday: 9AM – 6PM<br/>
+            <span class="text-red-500 font-semibold">Sunday: Emergency Only</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment Form + Map -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-start">
+
+        <!-- Form -->
+        <div class="animate-on-scroll">
+          <span class="section-tag">Book Online</span>
+          <h2 class="font-poppins font-bold text-4xl text-gray-900 mt-3 mb-8">Book an Appointment</h2>
+          <form id="contactForm" class="contact-form space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" placeholder="e.g. Ravi Kumar" required/>
+              </div>
+              <div>
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" placeholder="10-digit number" maxlength="10" required/>
+              </div>
+            </div>
+            <div>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="your@email.com"/>
+            </div>
+            <div>
+              <label for="department">Department</label>
+              <select id="department">
+                <option value="">Select Department</option>
+                <option>Cardiology</option>
+                <option>Orthopedics</option>
+                <option>General Medicine</option>
+                <option>Pediatrics</option>
+                <option>Emergency Care</option>
+                <option>Diagnostics</option>
+                <option>Neurology</option>
+                <option>Gynecology & Obstetrics</option>
+                <option>Ophthalmology</option>
+              </select>
+            </div>
+            <div>
+              <label for="date">Preferred Date</label>
+              <input type="date" id="date"/>
+            </div>
+            <div>
+              <label for="message">Message / Symptoms</label>
+              <textarea id="message" rows="4" placeholder="Briefly describe your concern..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn w-full flex items-center justify-center gap-2">
+              <i class="fas fa-calendar-check"></i> Confirm Appointment
+            </button>
+          </form>
+        </div>
+
+        <!-- Info + Map -->
+        <div class="animate-on-scroll space-y-8">
+          <div>
+            <span class="section-tag">Find Us</span>
+            <h2 class="font-poppins font-bold text-4xl text-gray-900 mt-3 mb-6">We're Easy to Find</h2>
+            <p class="text-gray-500 text-sm leading-relaxed mb-6">Located in Rampally, Hyderabad — accessible by all major transport routes. Ample parking available on-site.</p>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3 text-gray-600 text-sm">
+                <i class="fas fa-map-marker-alt text-blue-500 mt-1 text-base"></i>
+                <span>Rampally, Hyderabad, Telangana – 501301</span>
+              </div>
+              <div class="flex items-center gap-3 text-gray-600 text-sm">
+                <i class="fas fa-phone text-blue-500 text-base"></i>
+                <a href="tel:9876543210" class="hover:text-blue-600 transition">9876543210</a>
+              </div>
+              <div class="flex items-center gap-3 text-gray-600 text-sm">
+                <i class="fas fa-envelope text-blue-500 text-base"></i>
+                <span>info@svhospital.in</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Google Maps Embed -->
+          <div class="rounded-2xl overflow-hidden shadow-md border border-gray-100">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30444.51607093378!2d78.57773!3d17.48166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9b2cde9e4e69%3A0xb8aba8c3cc8a0e5f!2sRampally%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000"
+              width="100%"
+              height="300"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <!-- Emergency Strip -->
+          <div class="rounded-2xl p-6 flex items-center gap-5" style="background:linear-gradient(135deg,#fef2f2,#fee2e2)">
+            <div class="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#e63946">
+              <i class="fas fa-ambulance text-2xl text-white"></i>
+            </div>
+            <div>
+              <div class="font-poppins font-bold text-gray-900 text-lg">24/7 Emergency Line</div>
+              <a href="tel:9876543210" class="text-red-600 font-bold text-xl hover:underline">9876543210</a>
+              <div class="text-gray-500 text-xs mt-1">Immediate response for medical emergencies</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-14 animate-on-scroll">
+        <span class="section-tag">FAQs</span>
+        <h2 class="font-poppins font-bold text-4xl text-gray-900 mt-3">Frequently Asked Questions</h2>
+      </div>
+      <div class="space-y-4">
+        <div class="faq-item bg-white rounded-2xl overflow-hidden shadow-sm animate-on-scroll">
+          <button class="faq-toggle w-full text-left px-6 py-5 font-poppins font-semibold text-gray-800 flex justify-between items-center hover:text-blue-700 transition">
+            Do I need an appointment for General OPD?
+            <i class="fas fa-chevron-down text-blue-500 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-body hidden px-6 pb-5 text-gray-500 text-sm leading-relaxed">
+            Walk-ins are welcome for General OPD during working hours. However, for specialist consultations (Cardiology, Orthopedics, etc.), booking in advance is strongly recommended to avoid waiting times.
+          </div>
+        </div>
+        <div class="faq-item bg-white rounded-2xl overflow-hidden shadow-sm animate-on-scroll">
+          <button class="faq-toggle w-full text-left px-6 py-5 font-poppins font-semibold text-gray-800 flex justify-between items-center hover:text-blue-700 transition">
+            What insurance providers do you accept?
+            <i class="fas fa-chevron-down text-blue-500 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-body hidden px-6 pb-5 text-gray-500 text-sm leading-relaxed">
+            We accept most major insurance plans including Arogya Sri, ESIC, Star Health, New India, and CGHS. Please contact our billing desk for specific provider details.
+          </div>
+        </div>
+        <div class="faq-item bg-white rounded-2xl overflow-hidden shadow-sm animate-on-scroll">
+          <button class="faq-toggle w-full text-left px-6 py-5 font-poppins font-semibold text-gray-800 flex justify-between items-center hover:text-blue-700 transition">
+            Is parking available at the hospital?
+            <i class="fas fa-chevron-down text-blue-500 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-body hidden px-6 pb-5 text-gray-500 text-sm leading-relaxed">
+            Yes, we have a large dedicated parking area for patients and visitors at no additional charge. Valet parking is also available at the main entrance.
+          </div>
+        </div>
+        <div class="faq-item bg-white rounded-2xl overflow-hidden shadow-sm animate-on-scroll">
+          <button class="faq-toggle w-full text-left px-6 py-5 font-poppins font-semibold text-gray-800 flex justify-between items-center hover:text-blue-700 transition">
+            How can I get my medical reports?
+            <i class="fas fa-chevron-down text-blue-500 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-body hidden px-6 pb-5 text-gray-500 text-sm leading-relaxed">
+            Reports can be collected from our Medical Records counter or can be emailed to you upon request. Most lab reports are available within 4–6 hours. You can also call 9876543210 to enquire about report status.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-bg text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+        <div>
+          <div class="flex items-center gap-2 mb-5">
+            <div class="logo-icon w-10 h-10 rounded-full flex items-center justify-center text-white font-bold">SV</div>
+            <div class="font-poppins font-bold text-xl">SV Hospital</div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">Dedicated to delivering compassionate, world-class healthcare since 2006.</p>
+          <div class="flex gap-3">
+            <a href="#" class="w-9 h-9 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-facebook-f text-sm"></i></a>
+            <a href="#" class="w-9 h-9 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-instagram text-sm"></i></a>
+            <a href="#" class="w-9 h-9 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-youtube text-sm"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-poppins font-bold text-lg mb-5">Quick Links</h4>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li><a href="index.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Home</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Services</a></li>
+            <li><a href="about.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>About Us</a></li>
+            <li><a href="contact.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Contact</a></li>
+            <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-poppins font-bold text-lg mb-5">Our Services</h4>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Cardiology</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Orthopedics</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Pediatrics</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Emergency Care</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Diagnostics</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-poppins font-bold text-lg mb-5">Contact Us</h4>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>Rampally, Hyderabad, Telangana – 501301</li>
+            <li class="flex items-center gap-3"><i class="fas fa-phone text-blue-400"></i><a href="tel:9876543210" class="hover:text-white transition">9876543210</a></li>
+            <li class="flex items-center gap-3"><i class="fas fa-envelope text-blue-400"></i>info@svhospital.in</li>
+            <li class="flex items-start gap-3"><i class="fas fa-clock text-blue-400 mt-1"></i>Mon – Sat: 8:00 AM – 9:00 PM<br/>Emergency: 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-blue-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+        <div>© 2026 SV Hospital. All rights reserved.</div>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-white transition">Privacy Policy</a>
+          <span>|</span>
+          <a href="#" class="hover:text-white transition">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919876543210" target="_blank" class="fixed bottom-6 right-6 z-50 whatsapp-float w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+    <i class="fab fa-whatsapp text-2xl text-white"></i>
+  </a>
+  <a href="tel:9876543210" class="fixed bottom-24 right-6 z-50 call-float w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+    <i class="fas fa-phone text-xl text-white"></i>
+  </a>
+  <button id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="main.js"></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const body = btn.nextElementSibling;
+        const icon = btn.querySelector('i');
+        const isOpen = !body.classList.contains('hidden');
+
+        // Close all
+        document.querySelectorAll('.faq-body').forEach(b => b.classList.add('hidden'));
+        document.querySelectorAll('.faq-toggle i').forEach(i => i.style.transform = '');
+
+        if (!isOpen) {
+          body.classList.remove('hidden');
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

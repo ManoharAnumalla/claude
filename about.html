@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – SV Hospital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="font-opensans text-gray-800 bg-white">
+
+  <!-- Top Bar -->
+  <div class="topbar text-white text-sm py-2 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-300"></i> Rampally, Hyderabad</span>
+        <span class="flex items-center gap-1"><i class="fas fa-phone text-green-300"></i> 9876543210</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="flex items-center gap-1"><i class="fas fa-clock text-blue-300"></i> Mon–Sat: 8AM–9PM</span>
+        <a href="#" class="text-white hover:text-blue-300 transition"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white hover:text-blue-300 transition"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar sticky top-0 z-50 bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="logo-icon w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg">SV</div>
+        <div>
+          <div class="font-poppins text-xl leading-tight text-blue-900 font-bold">SV Hospital</div>
+          <div class="text-xs text-gray-500 leading-tight">Advanced Healthcare</div>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="index.html" class="nav-link font-semibold text-gray-700 hover:text-blue-700 transition font-poppins text-sm">Home</a>
+        <a href="services.html" class="nav-link font-semibold text-gray-700 hover:text-blue-700 transition font-poppins text-sm">Services</a>
+        <a href="about.html" class="nav-link active font-semibold text-blue-700 font-poppins text-sm">About Us</a>
+        <a href="contact.html" class="nav-link font-semibold text-gray-700 hover:text-blue-700 transition font-poppins text-sm">Contact</a>
+        <a href="tel:9876543210" class="emergency-btn text-white text-sm font-bold px-5 py-2 rounded-full flex items-center gap-2">
+          <i class="fas fa-phone-alt animate-pulse"></i> Emergency
+        </a>
+      </div>
+      <button id="hamburger" class="md:hidden text-gray-700 text-2xl focus:outline-none">
+        <i id="ham-icon" class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white border-t border-gray-100 px-4 pb-4">
+      <a href="index.html" class="block py-3 text-gray-700 font-semibold border-b border-gray-100 font-poppins">Home</a>
+      <a href="services.html" class="block py-3 text-gray-700 font-semibold border-b border-gray-100 font-poppins">Services</a>
+      <a href="about.html" class="block py-3 text-blue-700 font-semibold border-b border-gray-100 font-poppins">About Us</a>
+      <a href="contact.html" class="block py-3 text-gray-700 font-semibold border-b border-gray-100 hover:text-blue-700 font-poppins">Contact</a>
+      <a href="tel:9876543210" class="mt-3 block text-center emergency-btn text-white font-bold px-5 py-2 rounded-full"><i class="fas fa-phone-alt mr-2"></i>Emergency Call</a>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="max-w-3xl mx-auto">
+      <div class="breadcrumb text-sm mb-4 font-poppins">
+        <a href="index.html">Home</a><span>/</span><span class="text-white">About Us</span>
+      </div>
+      <h1 class="font-poppins font-extrabold text-4xl md:text-5xl mb-4">About SV Hospital</h1>
+      <p class="text-blue-100 text-lg">Two decades of compassionate healthcare, excellence in medicine, and unwavering commitment to our community.</p>
+    </div>
+  </div>
+
+  <!-- About Story -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="animate-on-scroll">
+          <span class="section-tag">Our Story</span>
+          <h2 class="font-poppins font-bold text-4xl text-gray-900 mt-3 mb-6">Healing Lives Since 2006</h2>
+          <p class="text-gray-600 leading-relaxed mb-5">SV Hospital was founded in 2006 with a single mission: to bring world-class healthcare to the doorstep of every family in Hyderabad. What started as a small 30-bed facility in Rampally has grown into a multi-speciality hospital trusted by over 10,000 patients every year.</p>
+          <p class="text-gray-600 leading-relaxed mb-5">Our growth has been driven by our commitment to medical excellence, investment in the latest technology, and most importantly — the compassionate care provided by our team of dedicated doctors, nurses, and support staff.</p>
+          <p class="text-gray-600 leading-relaxed">Today, we stand as one of Hyderabad's most trusted healthcare institutions, offering over 9 specialities and 24/7 emergency services, all under one roof.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-4 animate-on-scroll">
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=400&auto=format&fit=crop" alt="Hospital" class="rounded-2xl w-full h-48 object-cover shadow-md"/>
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&auto=format&fit=crop" alt="Doctors" class="rounded-2xl w-full h-48 object-cover shadow-md mt-8"/>
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&auto=format&fit=crop" alt="Surgery" class="rounded-2xl w-full h-48 object-cover shadow-md"/>
+          <img src="https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?w=400&auto=format&fit=crop" alt="Care" class="rounded-2xl w-full h-48 object-cover shadow-md mt-8"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Vision Values -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-14 animate-on-scroll">
+        <span class="section-tag">Our Pillars</span>
+        <h2 class="font-poppins font-bold text-4xl text-gray-900 mt-3">Mission, Vision & Values</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-sm animate-on-scroll text-center hover:shadow-md transition-all">
+          <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#e8f0fe,#c7d9ff)">
+            <i class="fas fa-bullseye text-2xl text-blue-600"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-xl mb-4 text-gray-900">Our Mission</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">To provide accessible, affordable, and exceptional healthcare services to every individual, guided by integrity, innovation, and compassion.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-sm animate-on-scroll text-center hover:shadow-md transition-all">
+          <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#f0fdf4,#bbf7d0)">
+            <i class="fas fa-eye text-2xl text-green-600"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-xl mb-4 text-gray-900">Our Vision</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">To be Hyderabad's most trusted multi-speciality hospital, setting new benchmarks in clinical outcomes, patient experience, and community health impact.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-sm animate-on-scroll text-center hover:shadow-md transition-all">
+          <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#fef9c3,#fef08a)">
+            <i class="fas fa-heart text-2xl text-yellow-600"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-xl mb-4 text-gray-900">Our Values</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Compassion, clinical excellence, transparency, patient dignity, and continuous learning form the core of everything we do at SV Hospital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-14 animate-on-scroll">
+        <span class="section-tag">Our Journey</span>
+        <h2 class="font-poppins font-bold text-4xl text-gray-900 mt-3">Milestones Over the Years</h2>
+      </div>
+      <div class="space-y-10">
+        <div class="timeline-item animate-on-scroll pb-8">
+          <div class="text-blue-600 font-poppins font-bold text-lg mb-1">2006 – Foundation</div>
+          <p class="text-gray-600 text-sm leading-relaxed">SV Hospital was established in Rampally, Hyderabad with 30 beds and a dedicated team of 5 doctors, serving the local community.</p>
+        </div>
+        <div class="timeline-item animate-on-scroll pb-8">
+          <div class="text-blue-600 font-poppins font-bold text-lg mb-1">2010 – First Expansion</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Expanded to 80 beds and added Cardiology and Orthopedics departments. Installed our first MRI machine for advanced diagnostics.</p>
+        </div>
+        <div class="timeline-item animate-on-scroll pb-8">
+          <div class="text-blue-600 font-poppins font-bold text-lg mb-1">2014 – NABH Accreditation</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Received National Accreditation Board for Hospitals (NABH) certification, recognizing our commitment to quality and patient safety standards.</p>
+        </div>
+        <div class="timeline-item animate-on-scroll pb-8">
+          <div class="text-blue-600 font-poppins font-bold text-lg mb-1">2018 – New ICU & Trauma Centre</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Launched a 20-bed ICU and 24/7 Trauma Centre, significantly upgrading our emergency care capacity and critical care capabilities.</p>
+        </div>
+        <div class="timeline-item animate-on-scroll pb-8">
+          <div class="text-blue-600 font-poppins font-bold text-lg mb-1">2022 – Robotic Surgery Wing</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Introduced robotic-assisted surgery, making SV Hospital one of the few hospitals in this region to offer minimally invasive precision surgery.</p>
+        </div>
+        <div class="timeline-item animate-on-scroll">
+          <div class="text-blue-600 font-poppins font-bold text-lg mb-1">2026 – 10,000+ Patients Milestone</div>
+          <p class="text-gray-600 text-sm leading-relaxed">Crossed the milestone of serving 10,000+ patients annually, with 15+ specialists and a vision to expand to a 200-bed capacity by 2028.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section py-20" id="stats">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="stat-item animate-on-scroll">
+          <div class="stat-icon w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-users text-2xl text-white"></i></div>
+          <div class="font-poppins font-extrabold text-4xl text-white counter" data-target="10000">0</div>
+          <div class="text-blue-200 font-semibold mt-1">+ Happy Patients</div>
+        </div>
+        <div class="stat-item animate-on-scroll">
+          <div class="stat-icon w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-user-md text-2xl text-white"></i></div>
+          <div class="font-poppins font-extrabold text-4xl text-white counter" data-target="15">0</div>
+          <div class="text-blue-200 font-semibold mt-1">+ Expert Doctors</div>
+        </div>
+        <div class="stat-item animate-on-scroll">
+          <div class="stat-icon w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-hospital text-2xl text-white"></i></div>
+          <div class="font-poppins font-extrabold text-4xl text-white counter" data-target="20">0</div>
+          <div class="text-blue-200 font-semibold mt-1">+ Years Experience</div>
+        </div>
+        <div class="stat-item animate-on-scroll">
+          <div class="stat-icon w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-ambulance text-2xl text-white"></i></div>
+          <div class="font-poppins font-extrabold text-4xl text-white">24/7</div>
+          <div class="text-blue-200 font-semibold mt-1">Emergency Care</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accreditations -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <div class="animate-on-scroll mb-12">
+        <span class="section-tag">Recognition</span>
+        <h2 class="font-poppins font-bold text-4xl text-gray-900 mt-3 mb-4">Awards & Accreditations</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="p-6 bg-blue-50 rounded-2xl text-center animate-on-scroll hover:bg-blue-100 transition">
+          <i class="fas fa-award text-4xl text-blue-600 mb-4"></i>
+          <div class="font-poppins font-bold text-gray-800 text-sm">NABH Accredited</div>
+          <div class="text-gray-500 text-xs mt-1">Since 2014</div>
+        </div>
+        <div class="p-6 bg-green-50 rounded-2xl text-center animate-on-scroll hover:bg-green-100 transition">
+          <i class="fas fa-certificate text-4xl text-green-600 mb-4"></i>
+          <div class="font-poppins font-bold text-gray-800 text-sm">ISO 9001:2015</div>
+          <div class="text-gray-500 text-xs mt-1">Quality Certified</div>
+        </div>
+        <div class="p-6 bg-yellow-50 rounded-2xl text-center animate-on-scroll hover:bg-yellow-100 transition">
+          <i class="fas fa-star text-4xl text-yellow-500 mb-4"></i>
+          <div class="font-poppins font-bold text-gray-800 text-sm">Best Hospital</div>
+          <div class="text-gray-500 text-xs mt-1">Hyderabad 2023</div>
+        </div>
+        <div class="p-6 bg-purple-50 rounded-2xl text-center animate-on-scroll hover:bg-purple-100 transition">
+          <i class="fas fa-shield-alt text-4xl text-purple-600 mb-4"></i>
+          <div class="font-poppins font-bold text-gray-800 text-sm">Patient Safety</div>
+          <div class="text-gray-500 text-xs mt-1">Excellence Award</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-bg text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+        <div>
+          <div class="flex items-center gap-2 mb-5">
+            <div class="logo-icon w-10 h-10 rounded-full flex items-center justify-center text-white font-bold">SV</div>
+            <div class="font-poppins font-bold text-xl">SV Hospital</div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">Dedicated to delivering compassionate, world-class healthcare since 2006.</p>
+          <div class="flex gap-3">
+            <a href="#" class="w-9 h-9 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-facebook-f text-sm"></i></a>
+            <a href="#" class="w-9 h-9 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-instagram text-sm"></i></a>
+            <a href="#" class="w-9 h-9 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-youtube text-sm"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-poppins font-bold text-lg mb-5">Quick Links</h4>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li><a href="index.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Home</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Services</a></li>
+            <li><a href="about.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>About Us</a></li>
+            <li><a href="contact.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Contact</a></li>
+            <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-poppins font-bold text-lg mb-5">Our Services</h4>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Cardiology</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Orthopedics</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Pediatrics</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Emergency Care</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Diagnostics</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-poppins font-bold text-lg mb-5">Contact Us</h4>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>Rampally, Hyderabad, Telangana – 501301</li>
+            <li class="flex items-center gap-3"><i class="fas fa-phone text-blue-400"></i><a href="tel:9876543210" class="hover:text-white transition">9876543210</a></li>
+            <li class="flex items-center gap-3"><i class="fas fa-envelope text-blue-400"></i>info@svhospital.in</li>
+            <li class="flex items-start gap-3"><i class="fas fa-clock text-blue-400 mt-1"></i>Mon – Sat: 8:00 AM – 9:00 PM<br/>Emergency: 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-blue-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+        <div>© 2026 SV Hospital. All rights reserved.</div>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-white transition">Privacy Policy</a>
+          <span>|</span>
+          <a href="#" class="hover:text-white transition">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919876543210" target="_blank" class="fixed bottom-6 right-6 z-50 whatsapp-float w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+    <i class="fab fa-whatsapp text-2xl text-white"></i>
+  </a>
+  <a href="tel:9876543210" class="fixed bottom-24 right-6 z-50 call-float w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+    <i class="fas fa-phone text-xl text-white"></i>
+  </a>
+  <button id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="main.js"></script>
+</body>
+</html>

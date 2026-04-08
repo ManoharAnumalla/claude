@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SV Hospital – Advanced Healthcare You Can Trust</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --navy: #0b1f4b;
+      --blue: #1a56db;
+      --blue-light: #3b82f6;
+      --teal: #0891b2;
+      --red: #e63946;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; }
+    .fp { font-family: 'Poppins', sans-serif; }
+
+    /* ═══ TOP BAR ═══ */
+    .topbar {
+      background: linear-gradient(90deg, #0b1f4b 0%, #1a56db 100%);
+      padding: 8px 16px; font-size: 0.79rem; color: #fff;
+    }
+    .topbar-inner { max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; }
+
+    /* ═══ NAVBAR ═══ */
+    .navbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: #fff;
+      box-shadow: 0 2px 20px rgba(11,31,75,0.10);
+      transition: box-shadow 0.3s;
+    }
+    .navbar.scrolled { box-shadow: 0 4px 32px rgba(11,31,75,0.16); }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 24px;
+      height: 74px; display: flex; align-items: center; justify-content: space-between;
+    }
+    /* Logo */
+    .logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-badge {
+      width: 48px; height: 48px; border-radius: 13px;
+      background: linear-gradient(135deg, #1a56db 0%, #0891b2 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif; font-weight: 900; font-size: 1.15rem; color: #fff;
+      box-shadow: 0 4px 16px rgba(26,86,219,0.38); flex-shrink: 0;
+    }
+    .logo-name { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.25rem; color: #0b1f4b; line-height: 1.2; }
+    .logo-sub { font-size: 0.68rem; color: #6b7280; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+    /* Desktop Links */
+    .nav-links-wrap { display: flex; align-items: center; gap: 2px; }
+    .nav-item {
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.875rem;
+      color: #374151; padding: 9px 16px; border-radius: 9px;
+      text-decoration: none; transition: all 0.2s; position: relative;
+    }
+    .nav-item:hover { color: #1a56db; background: #eff6ff; }
+    .nav-item.active { color: #1a56db; background: #eff6ff; }
+    .nav-item.active::after {
+      content: ''; position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%);
+      width: 18px; height: 3px; background: #1a56db; border-radius: 99px;
+    }
+    .nav-divider { width: 1px; height: 28px; background: #e5e7eb; margin: 0 6px; }
+    .btn-emergency {
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.8rem;
+      background: #e63946; color: #fff; padding: 9px 18px; border-radius: 9px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+      box-shadow: 0 3px 12px rgba(230,57,70,0.32); transition: all 0.25s;
+    }
+    .btn-emergency:hover { background: #c1121f; transform: translateY(-1px); }
+    .btn-book-nav {
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.85rem;
+      background: linear-gradient(135deg, #1a56db, #0891b2); color: #fff;
+      padding: 10px 22px; border-radius: 10px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 14px rgba(26,86,219,0.30); transition: all 0.25s; margin-left: 4px;
+    }
+    .btn-book-nav:hover { transform: translateY(-2px); box-shadow: 0 7px 22px rgba(26,86,219,0.42); }
+    /* Hamburger */
+    .ham-btn {
+      display: none; background: #f3f4f6; border: none; cursor: pointer;
+      width: 44px; height: 44px; border-radius: 11px;
+      align-items: center; justify-content: center;
+      font-size: 1.1rem; color: #374151; transition: background 0.2s;
+    }
+    .ham-btn:hover { background: #e5e7eb; }
+    /* Mobile menu */
+    .mob-menu {
+      display: none; background: #fff;
+      border-top: 1px solid #f1f5f9; padding: 10px 16px 20px;
+    }
+    .mob-menu.open { display: block; animation: mDrop 0.28s ease; }
+    @keyframes mDrop { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
+    .mob-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px; border-radius: 11px; margin-bottom: 3px;
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.88rem;
+      color: #374151; text-decoration: none; transition: all 0.2s;
+    }
+    .mob-item:hover, .mob-item.active { background: #eff6ff; color: #1a56db; }
+    .mob-icon { width: 34px; height: 34px; background: #e0eaff; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; color: #1a56db; }
+    .mob-hr { height: 1px; background: #f1f5f9; margin: 8px 0; }
+    .mob-book { display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg,#1a56db,#0891b2); color: #fff; font-family: 'Poppins',sans-serif; font-weight: 700; padding: 14px; border-radius: 12px; margin-top: 6px; text-decoration: none; font-size: 0.9rem; box-shadow: 0 4px 14px rgba(26,86,219,0.28); }
+    .mob-emergency { display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg,#e63946,#c1121f); color: #fff; font-family: 'Poppins',sans-serif; font-weight: 700; padding: 14px; border-radius: 12px; margin-top: 8px; text-decoration: none; font-size: 0.9rem; box-shadow: 0 4px 14px rgba(230,57,70,0.28); }
+    @media (max-width: 1024px) {
+      .nav-links-wrap, .btn-book-nav, .btn-emergency, .nav-divider { display: none !important; }
+      .ham-btn { display: flex; }
+    }
+
+    /* ═══ HERO CAROUSEL ═══ */
+    .carousel { position: relative; width: 100%; height: 100vh; min-height: 580px; overflow: hidden; }
+    .c-slide { position: absolute; inset: 0; background-size: cover; background-position: center center; opacity: 0; transition: opacity 1.3s ease; }
+    .c-slide.active { opacity: 1; }
+    .c-overlay { position: absolute; inset: 0; background: linear-gradient(125deg, rgba(11,31,75,0.90) 0%, rgba(26,86,219,0.62) 55%, rgba(8,145,178,0.30) 100%); }
+    .c-content { position: absolute; inset: 0; display: flex; align-items: center; z-index: 10; }
+    .c-inner { max-width: 1280px; margin: 0 auto; padding: 0 28px; width: 100%; }
+    /* Hero animations */
+    @keyframes hIn { from { opacity:0; transform:translateY(42px); } to { opacity:1; transform:translateY(0); } }
+    .c-slide.active .ha1 { animation: hIn 0.85s ease 0.1s both; }
+    .c-slide.active .ha2 { animation: hIn 0.85s ease 0.25s both; }
+    .c-slide.active .ha3 { animation: hIn 0.85s ease 0.4s both; }
+    .c-slide.active .ha4 { animation: hIn 0.85s ease 0.55s both; }
+    /* Dots */
+    .c-dots { position: absolute; bottom: 88px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 20; }
+    .c-dot { width: 10px; height: 10px; border-radius: 99px; background: rgba(255,255,255,0.38); border: none; cursor: pointer; transition: all 0.35s ease; padding: 0; }
+    .c-dot.active { width: 30px; background: #fff; }
+    /* Arrows */
+    .c-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 20; width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.14); backdrop-filter: blur(8px); border: 1.5px solid rgba(255,255,255,0.22); color: #fff; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: all 0.25s ease; }
+    .c-arrow:hover { background: rgba(255,255,255,0.28); transform: translateY(-50%) scale(1.08); }
+    .c-arrow.prev { left: 22px; }
+    .c-arrow.next { right: 22px; }
+    /* Wave */
+    .c-wave { position: absolute; bottom: 0; left: 0; right: 0; z-index: 15; line-height: 0; }
+    /* Slide counter badge */
+    .c-counter { position: absolute; top: 24px; right: 24px; z-index: 20; background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 0.8rem; padding: 6px 14px; border-radius: 99px; }
+
+    /* ═══ APPT STRIP ═══ */
+    .appt-strip {
+      background: #fff; border-radius: 20px;
+      box-shadow: 0 8px 48px rgba(11,31,75,0.13);
+      padding: 28px 32px;
+      margin: -52px 24px 0; position: relative; z-index: 30;
+    }
+    .appt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; align-items: end; }
+    .appt-input { width: 100%; padding: 11px 14px; border: 1.5px solid #e5e7eb; border-radius: 10px; font-size: 0.84rem; outline: none; font-family: 'Open Sans',sans-serif; background: #f9fafb; transition: all 0.2s; }
+    .appt-input:focus { border-color: #1a56db; background: #fff; box-shadow: 0 0 0 3px rgba(26,86,219,0.09); }
+    .appt-label { font-size: 0.73rem; font-weight: 600; color: #374151; font-family: 'Poppins',sans-serif; display: block; margin-bottom: 5px; }
+    .appt-btn { width: 100%; padding: 12px; background: linear-gradient(135deg,#1a56db,#0891b2); color: #fff; border: none; border-radius: 10px; font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px; box-shadow: 0 4px 16px rgba(26,86,219,0.28); transition: all 0.25s; }
+    .appt-btn:hover { transform: translateY(-2px); box-shadow: 0 7px 22px rgba(26,86,219,0.4); }
+    @media (max-width: 640px) { .appt-strip { margin: -28px 12px 0; padding: 20px 16px; } }
+
+    /* ═══ SECTION TAG ═══ */
+    .stag { display: inline-block; background: #dbeafe; color: #1a56db; font-family: 'Poppins',sans-serif; font-weight: 600; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 99px; }
+
+    /* ═══ SERVICE CARDS ═══ */
+    .svc-card { border: 1.5px solid #f1f5f9; border-radius: 20px; padding: 28px; background: #fff; box-shadow: 0 2px 14px rgba(11,31,75,0.06); transition: all 0.35s ease; }
+    .svc-card:hover { transform: translateY(-8px); box-shadow: 0 18px 52px rgba(11,31,75,0.14); border-color: #bfdbfe; }
+    .svc-icon { width: 58px; height: 58px; border-radius: 15px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg,#eff6ff,#dbeafe); margin-bottom: 18px; transition: all 0.3s; }
+    .svc-card:hover .svc-icon { background: linear-gradient(135deg,#1a56db,#0891b2); }
+    .svc-card:hover .svc-icon i { color: #fff !important; }
+
+    /* ═══ STATS ═══ */
+    .stats-bg { background: linear-gradient(135deg, #0b1f4b 0%, #1a56db 60%, #0891b2 100%); padding: 72px 24px; position: relative; overflow: hidden; }
+    .stats-bg::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 15% 50%, rgba(255,255,255,0.07) 0%, transparent 50%), radial-gradient(circle at 85% 20%, rgba(255,255,255,0.05) 0%, transparent 40%); }
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+    @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+    .stat-card { background: rgba(255,255,255,0.10); backdrop-filter: blur(12px); border: 1.5px solid rgba(255,255,255,0.18); border-radius: 20px; padding: 30px 16px; text-align: center; transition: all 0.3s ease; }
+    .stat-card:hover { transform: translateY(-6px); background: rgba(255,255,255,0.17); }
+    .stat-icon { width: 58px; height: 58px; border-radius: 15px; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 1.5rem; color: #fff; }
+    .stat-num { font-family: 'Poppins',sans-serif; font-weight: 900; font-size: clamp(2rem,4vw,2.8rem); color: #fff; line-height: 1; display: flex; align-items: baseline; justify-content: center; gap: 2px; }
+    .stat-plus { font-size: 1.6rem; font-weight: 700; }
+    .stat-lbl { color: #93c5fd; font-size: 0.82rem; font-weight: 600; font-family: 'Poppins',sans-serif; margin-top: 8px; }
+
+    /* ═══ DOCTOR CARDS ═══ */
+    .doc-card { border-radius: 20px; overflow: hidden; background: #fff; box-shadow: 0 4px 20px rgba(11,31,75,0.08); transition: all 0.35s; }
+    .doc-card:hover { transform: translateY(-8px); box-shadow: 0 18px 52px rgba(11,31,75,0.16); }
+    .doc-img-wrap { overflow: hidden; position: relative; }
+    .doc-img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.55s ease; }
+    .doc-card:hover .doc-img { transform: scale(1.07); }
+    .doc-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,31,75,0.78) 0%, transparent 55%); opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 14px; }
+    .doc-card:hover .doc-overlay { opacity: 1; }
+
+    /* ═══ TESTIMONIALS ═══ */
+    .testi { background: #fff; border-radius: 20px; padding: 28px; box-shadow: 0 2px 16px rgba(11,31,75,0.07); border-top: 3px solid transparent; transition: all 0.3s; }
+    .testi:hover { transform: translateY(-5px); border-top-color: #1a56db; box-shadow: 0 12px 40px rgba(11,31,75,0.13); }
+
+    /* ═══ CTA ═══ */
+    .cta-bg { background: linear-gradient(135deg, #0b1f4b 0%, #1a56db 100%); padding: 72px 24px; position: relative; overflow: hidden; }
+    .cta-bg::after { content: ''; position: absolute; top: -50%; right: -5%; width: 500px; height: 500px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+
+    /* ═══ FOOTER ═══ */
+    .footer-bg { background: linear-gradient(180deg, #0b1f4b 0%, #060f26 100%); padding: 64px 24px 28px; color: #fff; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .f-link { color: #9ca3af; text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; transition: color 0.2s; padding: 4px 0; }
+    .f-link:hover { color: #fff; }
+    .social-btn { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 0.85rem; text-decoration: none; transition: all 0.2s; }
+    .social-btn:hover { color: #fff; }
+
+    /* ═══ FLOATING BUTTONS ═══ */
+    .wa-btn { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 56px; height: 56px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; box-shadow: 0 4px 20px rgba(37,211,102,0.42); text-decoration: none; animation: fbounce 3s ease-in-out infinite; transition: transform 0.2s; }
+    .call-btn { position: fixed; bottom: 92px; right: 24px; z-index: 999; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg,#1a56db,#0891b2); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; box-shadow: 0 4px 20px rgba(26,86,219,0.38); text-decoration: none; animation: fbounce 3s ease-in-out 0.5s infinite; transition: transform 0.2s; }
+    .wa-btn:hover, .call-btn:hover { transform: scale(1.12) !important; }
+    @keyframes fbounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-7px); } }
+    #scrollTopBtn { display: none; position: fixed; bottom: 92px; left: 24px; z-index: 999; width: 44px; height: 44px; border-radius: 50%; background: #1a56db; color: #fff; border: none; cursor: pointer; align-items: center; justify-content: center; font-size: 0.95rem; box-shadow: 0 3px 14px rgba(26,86,219,0.32); transition: all 0.2s; }
+    #scrollTopBtn.show { display: flex; }
+    #scrollTopBtn:hover { background: #0b1f4b; }
+
+    /* ═══ SCROLL REVEAL ═══ */
+    .rev { opacity: 0; transform: translateY(34px); transition: all 0.65s cubic-bezier(0.22, 1, 0.36, 1); }
+    .rev.in { opacity: 1; transform: translateY(0); }
+
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    @keyframes heroIn { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+  </style>
+</head>
+<body>
+
+<!-- ══════ TOP BAR ══════ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+      <span style="display:flex;align-items:center;gap:6px;"><i class="fas fa-map-marker-alt" style="color:#f87171;"></i>Rampally, Hyderabad</span>
+      <span style="display:flex;align-items:center;gap:6px;"><i class="fas fa-phone" style="color:#86efac;"></i>9876543210</span>
+      <span style="display:flex;align-items:center;gap:6px;"><i class="fas fa-envelope" style="color:#93c5fd;"></i>info@svhospital.in</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <span style="display:flex;align-items:center;gap:5px;font-size:0.76rem;"><i class="fas fa-clock" style="color:#fde68a;"></i>Mon–Sat: 8AM–9PM</span>
+      <div style="display:flex;gap:8px;margin-left:4px;">
+        <a href="#" style="color:rgba(255,255,255,0.65);font-size:0.78rem;transition:color 0.2s;text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" style="color:rgba(255,255,255,0.65);font-size:0.78rem;transition:color 0.2s;text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'"><i class="fab fa-instagram"></i></a>
+        <a href="#" style="color:rgba(255,255,255,0.65);font-size:0.78rem;transition:color 0.2s;text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.65)'"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ NAVBAR ══════ -->
+<nav class="navbar" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo-wrap">
+      <div class="logo-badge">SV</div>
+      <div>
+        <div class="logo-name">SV Hospital</div>
+        <div class="logo-sub">Advanced Healthcare</div>
+      </div>
+    </a>
+    <div class="nav-links-wrap">
+      <a href="index.html" class="nav-item active"><i class="fas fa-home" style="font-size:0.72rem;margin-right:5px;"></i>Home</a>
+      <a href="services.html" class="nav-item">Services</a>
+      <a href="about.html" class="nav-item">About Us</a>
+      <a href="contact.html" class="nav-item">Contact</a>
+      <div class="nav-divider"></div>
+      <a href="tel:9876543210" class="btn-emergency"><i class="fas fa-phone-alt" style="animation:pulse 1.5s infinite;"></i>Emergency</a>
+      <a href="contact.html" class="btn-book-nav"><i class="fas fa-calendar-check"></i>Book Appointment</a>
+    </div>
+    <button class="ham-btn" id="hamBtn"><i class="fas fa-bars" id="hamIco"></i></button>
+  </div>
+  <!-- Mobile Menu -->
+  <div class="mob-menu" id="mobMenu">
+    <a href="index.html" class="mob-item active"><span class="mob-icon"><i class="fas fa-home"></i></span>Home</a>
+    <a href="services.html" class="mob-item"><span class="mob-icon"><i class="fas fa-stethoscope"></i></span>Services</a>
+    <a href="about.html" class="mob-item"><span class="mob-icon"><i class="fas fa-hospital"></i></span>About Us</a>
+    <a href="contact.html" class="mob-item"><span class="mob-icon"><i class="fas fa-envelope"></i></span>Contact</a>
+    <div class="mob-hr"></div>
+    <a href="contact.html" class="mob-book"><i class="fas fa-calendar-check"></i>Book Appointment</a>
+    <a href="tel:9876543210" class="mob-emergency"><i class="fas fa-phone-alt"></i>Emergency: 9876543210</a>
+  </div>
+</nav>
+
+<!-- ══════ HERO CAROUSEL ══════ -->
+<section class="carousel" id="carousel">
+
+  <div class="c-slide active" style="background-image:url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1600&auto=format&fit=crop&q=80');">
+    <div class="c-overlay"></div>
+  </div>
+  <div class="c-slide" style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&auto=format&fit=crop&q=80');">
+    <div class="c-overlay"></div>
+  </div>
+  <div class="c-slide" style="background-image:url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1600&auto=format&fit=crop&q=80');">
+    <div class="c-overlay"></div>
+  </div>
+  <div class="c-slide" style="background-image:url('https://images.unsplash.com/photo-1551076805-e1869033e561?w=1600&auto=format&fit=crop&q=80');">
+    <div class="c-overlay"></div>
+  </div>
+
+  <!-- Static hero content shown on all slides -->
+  <div class="c-content">
+    <div class="c-inner">
+      <div class="ha1" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.14);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.22);color:#fff;padding:8px 18px;border-radius:99px;font-family:'Poppins',sans-serif;font-size:0.8rem;font-weight:500;margin-bottom:20px;">
+        <span style="width:8px;height:8px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite;display:inline-block;flex-shrink:0;"></span>
+        24/7 Emergency Services Available
+      </div>
+      <h1 class="ha2 fp" style="color:#fff;font-size:clamp(2rem,5vw,3.7rem);font-weight:900;line-height:1.15;margin:0 0 18px;max-width:680px;">
+        Advanced Healthcare<br/><span style="color:#7dd3fc;">You Can Trust</span>
+      </h1>
+      <p class="ha3" style="color:#bfdbfe;font-size:clamp(0.9rem,1.5vw,1.05rem);line-height:1.75;max-width:520px;margin:0 0 32px;">
+        Delivering world-class medical care with compassion and expertise. From routine check-ups to complex surgeries — your health, our mission.
+      </p>
+      <div class="ha4" style="display:flex;flex-wrap:wrap;gap:14px;">
+        <a href="contact.html" style="background:#fff;color:#1a56db;font-family:'Poppins',sans-serif;font-weight:700;padding:14px 30px;border-radius:12px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-size:0.9rem;box-shadow:0 6px 24px rgba(0,0,0,0.18);transition:all 0.25s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''">
+          <i class="fas fa-calendar-check"></i>Book Appointment
+        </a>
+        <a href="tel:9876543210" style="border:2px solid rgba(255,255,255,0.55);color:#fff;font-family:'Poppins',sans-serif;font-weight:700;padding:14px 30px;border-radius:12px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-size:0.9rem;backdrop-filter:blur(6px);transition:all 0.25s;" onmouseover="this.style.background='rgba(255,255,255,0.14)'" onmouseout="this.style.background=''">
+          <i class="fas fa-phone-alt"></i>Call Now
+        </a>
+      </div>
+      <!-- Mini stats inside hero -->
+      <div style="display:flex;flex-wrap:wrap;gap:0;margin-top:52px;">
+        <div style="color:#fff;padding-right:32px;">
+          <div class="fp" style="font-weight:900;font-size:2rem;line-height:1;">10K+</div>
+          <div style="color:#93c5fd;font-size:0.78rem;margin-top:3px;">Happy Patients</div>
+        </div>
+        <div style="color:#fff;padding:0 32px;border-left:1px solid rgba(255,255,255,0.25);">
+          <div class="fp" style="font-weight:900;font-size:2rem;line-height:1;">15+</div>
+          <div style="color:#93c5fd;font-size:0.78rem;margin-top:3px;">Specialists</div>
+        </div>
+        <div style="color:#fff;padding:0 32px;border-left:1px solid rgba(255,255,255,0.25);">
+          <div class="fp" style="font-weight:900;font-size:2rem;line-height:1;">20+</div>
+          <div style="color:#93c5fd;font-size:0.78rem;margin-top:3px;">Years Experience</div>
+        </div>
+        <div style="color:#fff;padding:0 0 0 32px;border-left:1px solid rgba(255,255,255,0.25);">
+          <div class="fp" style="font-weight:900;font-size:2rem;line-height:1;">24/7</div>
+          <div style="color:#93c5fd;font-size:0.78rem;margin-top:3px;">Emergency</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide counter -->
+  <div class="c-counter" id="cCounter">1 / 4</div>
+  <!-- Arrows -->
+  <button class="c-arrow prev" id="cPrev"><i class="fas fa-chevron-left"></i></button>
+  <button class="c-arrow next" id="cNext"><i class="fas fa-chevron-right"></i></button>
+  <!-- Dots -->
+  <div class="c-dots" id="cDots"></div>
+  <!-- Wave -->
+  <div class="c-wave">
+    <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,72 L1440,72 L1440,30 C1260,72 960,4 680,28 C420,52 160,10 0,22 Z" fill="#f8faff"/></svg>
+  </div>
+</section>
+
+<!-- ══════ QUICK APPOINTMENT STRIP ══════ -->
+<div style="background:#f8faff;padding-bottom:72px;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 16px;">
+    <div class="appt-strip">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
+        <div style="width:42px;height:42px;background:linear-gradient(135deg,#1a56db,#0891b2);border-radius:11px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;flex-shrink:0;">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+        <div>
+          <div class="fp" style="font-weight:700;font-size:1.05rem;color:#0b1f4b;">Quick Appointment Booking</div>
+          <div style="font-size:0.76rem;color:#6b7280;">Fill in your details — we'll call you back within 30 minutes</div>
+        </div>
+        <a href="contact.html" style="margin-left:auto;font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:600;color:#1a56db;text-decoration:none;display:flex;align-items:center;gap:5px;white-space:nowrap;">Full Form <i class="fas fa-arrow-right" style="font-size:0.68rem;"></i></a>
+      </div>
+      <form id="qForm" class="appt-grid">
+        <div>
+          <label class="appt-label">Full Name *</label>
+          <input id="qn" class="appt-input" type="text" placeholder="Your full name"/>
+        </div>
+        <div>
+          <label class="appt-label">Phone Number *</label>
+          <input id="qp" class="appt-input" type="tel" placeholder="10-digit number" maxlength="10"/>
+        </div>
+        <div>
+          <label class="appt-label">Department</label>
+          <select class="appt-input" style="cursor:pointer;">
+            <option>General Medicine</option>
+            <option>Cardiology</option>
+            <option>Orthopedics</option>
+            <option>Pediatrics</option>
+            <option>Emergency Care</option>
+            <option>Diagnostics</option>
+          </select>
+        </div>
+        <div>
+          <label class="appt-label">Preferred Date</label>
+          <input class="appt-input" type="date"/>
+        </div>
+        <div>
+          <button type="submit" class="appt-btn"><i class="fas fa-paper-plane"></i>Book Now</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ SERVICES ══════ -->
+<section style="padding:80px 24px;background:#fff;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:52px;" class="rev">
+      <span class="stag">What We Offer</span>
+      <h2 class="fp" style="font-weight:800;font-size:clamp(1.8rem,3vw,2.5rem);color:#0b1f4b;margin:12px 0 10px;">Our Medical Services</h2>
+      <p style="color:#6b7280;max-width:500px;margin:0 auto;line-height:1.75;font-size:0.93rem;">Comprehensive healthcare across all specialties — delivered with expertise and the latest technology.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;">
+      <div class="svc-card rev">
+        <div class="svc-icon"><i class="fas fa-heartbeat" style="font-size:1.4rem;color:#ef4444;"></i></div>
+        <h3 class="fp" style="font-weight:700;font-size:1rem;color:#0b1f4b;margin:0 0 8px;">Cardiology</h3>
+        <p style="color:#6b7280;font-size:0.83rem;line-height:1.7;margin:0 0 14px;">ECG, echocardiography, angioplasty, pacemaker implantation and full cardiac surgery by top cardiologists.</p>
+        <a href="services.html" style="color:#1a56db;font-size:0.8rem;font-weight:600;font-family:'Poppins',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:gap 0.2s;" onmouseover="this.style.gap='9px'" onmouseout="this.style.gap='5px'">Learn More <i class="fas fa-arrow-right" style="font-size:0.68rem;"></i></a>
+      </div>
+      <div class="svc-card rev">
+        <div class="svc-icon"><i class="fas fa-bone" style="font-size:1.4rem;color:#f97316;"></i></div>
+        <h3 class="fp" style="font-weight:700;font-size:1rem;color:#0b1f4b;margin:0 0 8px;">Orthopedics</h3>
+        <p style="color:#6b7280;font-size:0.83rem;line-height:1.7;margin:0 0 14px;">Joint replacement, spine surgery, sports medicine and trauma care by experienced orthopedic surgeons.</p>
+        <a href="services.html" style="color:#1a56db;font-size:0.8rem;font-weight:600;font-family:'Poppins',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:5px;" onmouseover="this.style.gap='9px'" onmouseout="this.style.gap='5px'">Learn More <i class="fas fa-arrow-right" style="font-size:0.68rem;"></i></a>
+      </div>
+      <div class="svc-card rev">
+        <div class="svc-icon"><i class="fas fa-stethoscope" style="font-size:1.4rem;color:#3b82f6;"></i></div>
+        <h3 class="fp" style="font-weight:700;font-size:1rem;color:#0b1f4b;margin:0 0 8px;">General Medicine</h3>
+        <p style="color:#6b7280;font-size:0.83rem;line-height:1.7;margin:0 0 14px;">Primary care for all ages — infections, chronic conditions, diabetes management and preventive wellness.</p>
+        <a href="services.html" style="color:#1a56db;font-size:0.8rem;font-weight:600;font-family:'Poppins',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:5px;" onmouseover="this.style.gap='9px'" onmouseout="this.style.gap='5px'">Learn More <i class="fas fa-arrow-right" style="font-size:0.68rem;"></i></a>
+      </div>
+      <div class="svc-card rev">
+        <div class="svc-icon"><i class="fas fa-baby" style="font-size:1.4rem;color:#ec4899;"></i></div>
+        <h3 class="fp" style="font-weight:700;font-size:1rem;color:#0b1f4b;margin:0 0 8px;">Pediatrics</h3>
+        <p style="color:#6b7280;font-size:0.83rem;line-height:1.7;margin:0 0 14px;">Specialized child healthcare, vaccinations, NICU care and pediatric surgeries in a child-friendly environment.</p>
+        <a href="services.html" style="color:#1a56db;font-size:0.8rem;font-weight:600;font-family:'Poppins',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:5px;" onmouseover="this.style.gap='9px'" onmouseout="this.style.gap='5px'">Learn More <i class="fas fa-arrow-right" style="font-size:0.68rem;"></i></a>
+      </div>
+      <div class="svc-card rev">
+        <div class="svc-icon"><i class="fas fa-ambulance" style="font-size:1.4rem;color:#dc2626;"></i></div>
+        <h3 class="fp" style="font-weight:700;font-size:1rem;color:#0b1f4b;margin:0 0 8px;">Emergency Care</h3>
+        <p style="color:#6b7280;font-size:0.83rem;line-height:1.7;margin:0 0 14px;">24/7 trauma bays, fully equipped ICU and rapid-response medical teams always on standby for any emergency.</p>
+        <a href="services.html" style="color:#1a56db;font-size:0.8rem;font-weight:600;font-family:'Poppins',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:5px;" onmouseover="this.style.gap='9px'" onmouseout="this.style.gap='5px'">Learn More <i class="fas fa-arrow-right" style="font-size:0.68rem;"></i></a>
+      </div>
+      <div class="svc-card rev">
+        <div class="svc-icon"><i class="fas fa-flask" style="font-size:1.4rem;color:#8b5cf6;"></i></div>
+        <h3 class="fp" style="font-weight:700;font-size:1rem;color:#0b1f4b;margin:0 0 8px;">Diagnostics</h3>
+        <p style="color:#6b7280;font-size:0.83rem;line-height:1.7;margin:0 0 14px;">State-of-the-art MRI, CT scan, digital X-Ray, pathology lab and home sample collection for fast accurate results.</p>
+        <a href="services.html" style="color:#1a56db;font-size:0.8rem;font-weight:600;font-family:'Poppins',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:5px;" onmouseover="this.style.gap='9px'" onmouseout="this.style.gap='5px'">Learn More <i class="fas fa-arrow-right" style="font-size:0.68rem;"></i></a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px;" class="rev">
+      <a href="services.html" style="display:inline-flex;align-items:center;gap:8px;border:2px solid #1a56db;color:#1a56db;font-family:'Poppins',sans-serif;font-weight:700;padding:13px 32px;border-radius:12px;text-decoration:none;font-size:0.88rem;transition:all 0.25s;" onmouseover="this.style.background='#1a56db';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='#1a56db'">
+        View All Services <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ STATS ══════ -->
+<section class="stats-bg">
+  <div style="max-width:1280px;margin:0 auto;padding:0;position:relative;z-index:1;">
+    <div style="text-align:center;margin-bottom:44px;" class="rev">
+      <h2 class="fp" style="color:#fff;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 8px;">Our Impact in Numbers</h2>
+      <p style="color:#93c5fd;font-size:0.88rem;margin:0;">Two decades of excellence — measured in lives improved</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card rev">
+        <div class="stat-icon"><i class="fas fa-users"></i></div>
+        <div class="stat-num"><span class="counter fp" data-target="10000">0</span><span class="stat-plus fp">+</span></div>
+        <div class="stat-lbl">Happy Patients</div>
+      </div>
+      <div class="stat-card rev">
+        <div class="stat-icon"><i class="fas fa-user-md"></i></div>
+        <div class="stat-num"><span class="counter fp" data-target="15">0</span><span class="stat-plus fp">+</span></div>
+        <div class="stat-lbl">Expert Doctors</div>
+      </div>
+      <div class="stat-card rev">
+        <div class="stat-icon"><i class="fas fa-hospital"></i></div>
+        <div class="stat-num"><span class="counter fp" data-target="20">0</span><span class="stat-plus fp">+</span></div>
+        <div class="stat-lbl">Years Experience</div>
+      </div>
+      <div class="stat-card rev">
+        <div class="stat-icon"><i class="fas fa-ambulance"></i></div>
+        <div class="stat-num fp" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">24/7</div>
+        <div class="stat-lbl">Emergency Care</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ DOCTORS ══════ -->
+<section style="padding:80px 24px;background:#f8faff;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:48px;" class="rev">
+      <span class="stag">Our Team</span>
+      <h2 class="fp" style="font-weight:800;font-size:clamp(1.8rem,3vw,2.5rem);color:#0b1f4b;margin:12px 0 10px;">Meet Our Specialists</h2>
+      <p style="color:#6b7280;max-width:460px;margin:0 auto;line-height:1.75;font-size:0.93rem;">Highly experienced, compassionate doctors dedicated to your wellbeing.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;">
+
+      <div class="doc-card rev">
+        <div class="doc-img-wrap">
+          <img src="https://img.freepik.com/free-photo/portrait-smiling-male-doctor_171337-1532.jpg" alt="Dr. Suresh Varma" class="doc-img"/>
+          <div class="doc-overlay">
+            <a href="#" style="width:32px;height:32px;background:rgba(255,255,255,0.18);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;text-decoration:none;margin-right:6px;" onmouseover="this.style.background='#1a56db'" onmouseout="this.style.background='rgba(255,255,255,0.18)'"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" style="width:32px;height:32px;background:rgba(255,255,255,0.18);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;text-decoration:none;" onmouseover="this.style.background='#1a56db'" onmouseout="this.style.background='rgba(255,255,255,0.18)'"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div style="padding:18px;">
+          <h3 class="fp" style="font-weight:700;font-size:0.98rem;color:#0b1f4b;margin:0 0 4px;">Dr. Suresh Varma</h3>
+          <div style="color:#1a56db;font-size:0.78rem;font-weight:600;font-family:'Poppins',sans-serif;margin-bottom:10px;">Cardiologist</div>
+          <div style="display:flex;gap:14px;font-size:0.73rem;color:#6b7280;">
+            <span><i class="fas fa-briefcase" style="color:#93c5fd;margin-right:4px;"></i>12+ Yrs</span>
+            <span><i class="fas fa-graduation-cap" style="color:#93c5fd;margin-right:4px;"></i>MD, DM</span>
+          </div>
+          <div style="font-size:0.7rem;color:#9ca3af;margin-top:6px;">AIIMS Delhi · Interventional Cardiology</div>
+        </div>
+      </div>
+
+      <div class="doc-card rev">
+        <div class="doc-img-wrap">
+          <img src="https://img.freepik.com/free-photo/female-doctor-hospital_23-2148827775.jpg" alt="Dr. Priya Reddy" class="doc-img"/>
+          <div class="doc-overlay">
+            <a href="#" style="width:32px;height:32px;background:rgba(255,255,255,0.18);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;text-decoration:none;margin-right:6px;" onmouseover="this.style.background='#1a56db'" onmouseout="this.style.background='rgba(255,255,255,0.18)'"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" style="width:32px;height:32px;background:rgba(255,255,255,0.18);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;text-decoration:none;" onmouseover="this.style.background='#1a56db'" onmouseout="this.style.background='rgba(255,255,255,0.18)'"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div style="padding:18px;">
+          <h3 class="fp" style="font-weight:700;font-size:0.98rem;color:#0b1f4b;margin:0 0 4px;">Dr. Priya Reddy</h3>
+          <div style="color:#1a56db;font-size:0.78rem;font-weight:600;font-family:'Poppins',sans-serif;margin-bottom:10px;">Pediatrician</div>
+          <div style="display:flex;gap:14px;font-size:0.73rem;color:#6b7280;">
+            <span><i class="fas fa-briefcase" style="color:#93c5fd;margin-right:4px;"></i>10+ Yrs</span>
+            <span><i class="fas fa-graduation-cap" style="color:#93c5fd;margin-right:4px;"></i>MD, DCH</span>
+          </div>
+          <div style="font-size:0.7rem;color:#9ca3af;margin-top:6px;">Osmania Med. College · Neonatology</div>
+        </div>
+      </div>
+
+      <div class="doc-card rev">
+        <div class="doc-img-wrap">
+          <img src="https://img.freepik.com/free-photo/doctor-with-stethoscope-hands-hospital-background_1423-1.jpg" alt="Dr. Ravi Kumar" class="doc-img"/>
+          <div class="doc-overlay">
+            <a href="#" style="width:32px;height:32px;background:rgba(255,255,255,0.18);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;text-decoration:none;margin-right:6px;" onmouseover="this.style.background='#1a56db'" onmouseout="this.style.background='rgba(255,255,255,0.18)'"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" style="width:32px;height:32px;background:rgba(255,255,255,0.18);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;text-decoration:none;" onmouseover="this.style.background='#1a56db'" onmouseout="this.style.background='rgba(255,255,255,0.18)'"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div style="padding:18px;">
+          <h3 class="fp" style="font-weight:700;font-size:0.98rem;color:#0b1f4b;margin:0 0 4px;">Dr. Ravi Kumar</h3>
+          <div style="color:#1a56db;font-size:0.78rem;font-weight:600;font-family:'Poppins',sans-serif;margin-bottom:10px;">Orthopedic Surgeon</div>
+          <div style="display:flex;gap:14px;font-size:0.73rem;color:#6b7280;">
+            <span><i class="fas fa-briefcase" style="color:#93c5fd;margin-right:4px;"></i>15+ Yrs</span>
+            <span><i class="fas fa-graduation-cap" style="color:#93c5fd;margin-right:4px;"></i>MS, MCh</span>
+          </div>
+          <div style="font-size:0.7rem;color:#9ca3af;margin-top:6px;">Hyd. Med. College · Joint Replacement</div>
+        </div>
+      </div>
+
+      <div class="doc-card rev">
+        <div class="doc-img-wrap">
+          <img src="https://img.freepik.com/free-photo/medium-shot-smiley-doctor-with-stethoscope_23-2149191569.jpg" alt="Dr. Anitha Sharma" class="doc-img"/>
+          <div class="doc-overlay">
+            <a href="#" style="width:32px;height:32px;background:rgba(255,255,255,0.18);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;text-decoration:none;margin-right:6px;" onmouseover="this.style.background='#1a56db'" onmouseout="this.style.background='rgba(255,255,255,0.18)'"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" style="width:32px;height:32px;background:rgba(255,255,255,0.18);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;text-decoration:none;" onmouseover="this.style.background='#1a56db'" onmouseout="this.style.background='rgba(255,255,255,0.18)'"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div style="padding:18px;">
+          <h3 class="fp" style="font-weight:700;font-size:0.98rem;color:#0b1f4b;margin:0 0 4px;">Dr. Anitha Sharma</h3>
+          <div style="color:#1a56db;font-size:0.78rem;font-weight:600;font-family:'Poppins',sans-serif;margin-bottom:10px;">General Medicine</div>
+          <div style="display:flex;gap:14px;font-size:0.73rem;color:#6b7280;">
+            <span><i class="fas fa-briefcase" style="color:#93c5fd;margin-right:4px;"></i>8+ Yrs</span>
+            <span><i class="fas fa-graduation-cap" style="color:#93c5fd;margin-right:4px;"></i>MBBS, MD</span>
+          </div>
+          <div style="font-size:0.7rem;color:#9ca3af;margin-top:6px;">Gandhi Med. College · Diabetes & Thyroid</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════ TESTIMONIALS ══════ -->
+<section style="padding:80px 24px;background:#fff;">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:48px;" class="rev">
+      <span class="stag">Patient Stories</span>
+      <h2 class="fp" style="font-weight:800;font-size:clamp(1.8rem,3vw,2.5rem);color:#0b1f4b;margin:12px 0;">What Our Patients Say</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;">
+      <div class="testi rev">
+        <div style="color:#f59e0b;font-size:1rem;margin-bottom:14px;letter-spacing:2px;">★★★★★</div>
+        <p style="color:#4b5563;line-height:1.8;font-size:0.88rem;margin:0 0 20px;">"The care I received at SV Hospital was outstanding. Dr. Suresh's expertise and the nursing staff's compassion made my recovery so much easier. Truly a world-class facility."</p>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;border-radius:50%;background:#dbeafe;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;color:#1a56db;flex-shrink:0;">RK</div>
+          <div>
+            <div class="fp" style="font-weight:600;font-size:0.88rem;color:#0b1f4b;">Rajesh Kumar</div>
+            <div style="font-size:0.73rem;color:#9ca3af;">Cardiac Patient</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi rev">
+        <div style="color:#f59e0b;font-size:1rem;margin-bottom:14px;letter-spacing:2px;">★★★★★</div>
+        <p style="color:#4b5563;line-height:1.8;font-size:0.88rem;margin:0 0 20px;">"My daughter had a complex bone issue and Dr. Ravi's team handled it brilliantly. Clean hospital, helpful staff, and very affordable treatment without any compromise."</p>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;border-radius:50%;background:#fce7f3;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;color:#ec4899;flex-shrink:0;">LN</div>
+          <div>
+            <div class="fp" style="font-weight:600;font-size:0.88rem;color:#0b1f4b;">Lakshmi Naidu</div>
+            <div style="font-size:0.73rem;color:#9ca3af;">Parent of Patient</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi rev">
+        <div style="color:#f59e0b;font-size:1rem;margin-bottom:14px;letter-spacing:2px;">★★★★★</div>
+        <p style="color:#4b5563;line-height:1.8;font-size:0.88rem;margin:0 0 20px;">"Emergency response was swift and the ICU team was exceptional. I was brought in unconscious and today I'm fully recovered. Deeply grateful to the entire SV Hospital team."</p>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;border-radius:50%;background:#dcfce7;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;color:#16a34a;flex-shrink:0;">SP</div>
+          <div>
+            <div class="fp" style="font-weight:600;font-size:0.88rem;color:#0b1f4b;">Srinivas Prasad</div>
+            <div style="font-size:0.73rem;color:#9ca3af;">Emergency Patient</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CTA BANNER ══════ -->
+<section class="cta-bg">
+  <div style="max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:1;" class="rev">
+    <h2 class="fp" style="color:#fff;font-weight:800;font-size:clamp(1.8rem,3vw,2.8rem);margin:0 0 14px;">Need a Medical Consultation?</h2>
+    <p style="color:#93c5fd;font-size:0.95rem;margin:0 0 36px;line-height:1.75;">Book an appointment today or call us directly. Our team is available 24/7 for your healthcare needs.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;">
+      <a href="contact.html" style="background:#fff;color:#1a56db;font-family:'Poppins',sans-serif;font-weight:700;padding:14px 32px;border-radius:12px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-size:0.9rem;box-shadow:0 4px 20px rgba(0,0,0,0.15);transition:all 0.25s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''">
+        <i class="fas fa-calendar-check"></i>Book Appointment
+      </a>
+      <a href="tel:9876543210" style="border:2px solid rgba(255,255,255,0.48);color:#fff;font-family:'Poppins',sans-serif;font-weight:700;padding:14px 32px;border-radius:12px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-size:0.9rem;transition:all 0.25s;" onmouseover="this.style.background='rgba(255,255,255,0.12)'" onmouseout="this.style.background=''">
+        <i class="fas fa-phone-alt"></i>9876543210
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer class="footer-bg">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <div class="logo-badge">SV</div>
+          <div class="fp" style="font-weight:800;font-size:1.15rem;">SV Hospital</div>
+        </div>
+        <p style="color:#9ca3af;font-size:0.83rem;line-height:1.75;margin:0 0 18px;">Dedicated to delivering compassionate, world-class healthcare to the people of Hyderabad since 2006.</p>
+        <div style="display:flex;gap:8px;">
+          <a href="#" class="social-btn" onmouseover="this.style.background='#1877f2';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.color='#9ca3af'"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn" onmouseover="this.style.background='#e1306c';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.color='#9ca3af'"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn" onmouseover="this.style.background='#ff0000';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.color='#9ca3af'"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="fp" style="font-weight:700;font-size:0.95rem;margin:0 0 18px;">Quick Links</h4>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="index.html" class="f-link"><i class="fas fa-chevron-right" style="font-size:0.62rem;color:#3b82f6;"></i>Home</a>
+          <a href="services.html" class="f-link"><i class="fas fa-chevron-right" style="font-size:0.62rem;color:#3b82f6;"></i>Services</a>
+          <a href="about.html" class="f-link"><i class="fas fa-chevron-right" style="font-size:0.62rem;color:#3b82f6;"></i>About Us</a>
+          <a href="contact.html" class="f-link"><i class="fas fa-chevron-right" style="font-size:0.62rem;color:#3b82f6;"></i>Contact</a>
+          <a href="#" class="f-link"><i class="fas fa-chevron-right" style="font-size:0.62rem;color:#3b82f6;"></i>Privacy Policy</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="fp" style="font-weight:700;font-size:0.95rem;margin:0 0 18px;">Our Services</h4>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="services.html" class="f-link"><i class="fas fa-chevron-right" style="font-size:0.62rem;color:#3b82f6;"></i>Cardiology</a>
+          <a href="services.html" class="f-link"><i class="fas fa-chevron-right" style="font-size:0.62rem;color:#3b82f6;"></i>Orthopedics</a>
+          <a href="services.html" class="f-link"><i class="fas fa-chevron-right" style="font-size:0.62rem;color:#3b82f6;"></i>Pediatrics</a>
+          <a href="services.html" class="f-link"><i class="fas fa-chevron-right" style="font-size:0.62rem;color:#3b82f6;"></i>Emergency Care</a>
+          <a href="services.html" class="f-link"><i class="fas fa-chevron-right" style="font-size:0.62rem;color:#3b82f6;"></i>Diagnostics</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="fp" style="font-weight:700;font-size:0.95rem;margin:0 0 18px;">Contact Us</h4>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:flex-start;gap:10px;color:#9ca3af;font-size:0.83rem;"><i class="fas fa-map-marker-alt" style="color:#3b82f6;margin-top:2px;flex-shrink:0;"></i>Rampally, Hyderabad, Telangana – 501301</div>
+          <div style="display:flex;align-items:center;gap:10px;color:#9ca3af;font-size:0.83rem;"><i class="fas fa-phone" style="color:#3b82f6;"></i><a href="tel:9876543210" style="color:#9ca3af;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#9ca3af'">9876543210</a></div>
+          <div style="display:flex;align-items:center;gap:10px;color:#9ca3af;font-size:0.83rem;"><i class="fas fa-envelope" style="color:#3b82f6;"></i>info@svhospital.in</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;color:#9ca3af;font-size:0.83rem;"><i class="fas fa-clock" style="color:#3b82f6;margin-top:2px;flex-shrink:0;"></i><span>Mon–Sat: 8:00 AM – 9:00 PM<br/><span style="color:#f87171;font-weight:600;">Emergency: 24/7</span></span></div>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;">
+      <div style="color:#6b7280;font-size:0.8rem;">© 2026 SV Hospital. All rights reserved.</div>
+      <div style="display:flex;gap:14px;font-size:0.8rem;">
+        <a href="#" style="color:#6b7280;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#6b7280'">Privacy Policy</a>
+        <span style="color:#374151;">|</span>
+        <a href="#" style="color:#6b7280;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#6b7280'">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════ FLOATING BUTTONS ══════ -->
+<a href="https://wa.me/919876543210" target="_blank" class="wa-btn" title="WhatsApp Us"><i class="fab fa-whatsapp"></i></a>
+<a href="tel:9876543210" class="call-btn" title="Call Now"><i class="fas fa-phone"></i></a>
+<button id="scrollTopBtn" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+// ═══ HAMBURGER ═══
+const hamBtn = document.getElementById('hamBtn');
+const mobMenu = document.getElementById('mobMenu');
+const hamIco = document.getElementById('hamIco');
+hamBtn.addEventListener('click', () => {
+  const open = mobMenu.classList.toggle('open');
+  hamIco.className = open ? 'fas fa-times' : 'fas fa-bars';
+});
+
+// ═══ NAVBAR SCROLL ═══
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
+  document.getElementById('scrollTopBtn').classList.toggle('show', window.scrollY > 350);
+});
+
+// ═══ SCROLL TOP ═══
+document.getElementById('scrollTopBtn').addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+
+// ═══ HERO CAROUSEL ═══
+(function() {
+  const slides = document.querySelectorAll('.c-slide');
+  const dotsWrap = document.getElementById('cDots');
+  const counter = document.getElementById('cCounter');
+  let cur = 0, timer;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'c-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i+1));
+    d.addEventListener('click', () => go(i));
+    dotsWrap.appendChild(d);
+  });
+
+  function go(n) {
+    slides[cur].classList.remove('active');
+    dotsWrap.children[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dotsWrap.children[cur].classList.add('active');
+    counter.textContent = (cur + 1) + ' / ' + slides.length;
+    clearInterval(timer);
+    timer = setInterval(() => go(cur + 1), 5500);
+  }
+
+  document.getElementById('cPrev').addEventListener('click', () => go(cur - 1));
+  document.getElementById('cNext').addEventListener('click', () => go(cur + 1));
+  timer = setInterval(() => go(cur + 1), 5500);
+
+  // Touch/swipe
+  let tx = 0;
+  const car = document.getElementById('carousel');
+  car.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  car.addEventListener('touchend', e => {
+    const diff = tx - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) go(diff > 0 ? cur + 1 : cur - 1);
+  }, { passive: true });
+})();
+
+// ═══ SCROLL REVEAL ═══
+const revEls = document.querySelectorAll('.rev');
+new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), i * 75);
+    }
+  });
+}, { threshold: 0.1 }).observe
+  ? (function() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('in'), i * 75); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    revEls.forEach(el => obs.observe(el));
+  })()
+  : revEls.forEach(el => el.classList.add('in'));
+
+// ═══ COUNTER ═══
+function animCount(el) {
+  const target = +el.dataset.target;
+  const dur = 2400;
+  const step = target / (dur / 16);
+  let val = 0;
+  const t = setInterval(() => {
+    val += step;
+    if (val >= target) { el.textContent = target.toLocaleString(); clearInterval(t); }
+    else el.textContent = Math.floor(val).toLocaleString();
+  }, 16);
+}
+const countEls = document.querySelectorAll('.counter');
+new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { animCount(e.target); } });
+}, { threshold: 0.5 }).observe
+  ? (function() {
+    const cObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { animCount(e.target); cObs.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    countEls.forEach(c => cObs.observe(c));
+  })()
+  : countEls.forEach(c => animCount(c));
+
+// ═══ QUICK FORM ═══
+document.getElementById('qForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const n = document.getElementById('qn').value.trim();
+  const p = document.getElementById('qp').value.trim();
+  if (!n || !p) { showToast('Please fill in your name and phone number.', false); return; }
+  if (!/^\d{10}$/.test(p)) { showToast('Please enter a valid 10-digit phone number.', false); return; }
+  showToast('✅ Appointment request sent! We\'ll call you shortly.', true);
+  this.reset();
+});
+
+function showToast(msg, ok) {
+  const existing = document.getElementById('toast');
+  if (existing) existing.remove();
+  const d = document.createElement('div');
+  d.id = 'toast';
+  d.style.cssText = `position:fixed;top:20px;right:20px;z-index:9999;background:${ok?'#16a34a':'#dc2626'};color:#fff;padding:14px 22px;border-radius:12px;font-family:'Poppins',sans-serif;font-weight:600;font-size:0.86rem;box-shadow:0 6px 24px rgba(0,0,0,0.2);max-width:320px;`;
+  d.textContent = msg;
+  document.body.appendChild(d);
+  setTimeout(() => { d.style.opacity = '0'; d.style.transition = 'opacity 0.3s'; setTimeout(() => d.remove(), 300); }, 4200);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services – SV Hospital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="font-opensans text-gray-800 bg-white">
+
+  <!-- Top Bar -->
+  <div id="topbar" class="topbar text-white text-sm py-2 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-red-300"></i> Rampally, Hyderabad</span>
+        <span class="flex items-center gap-1"><i class="fas fa-phone text-green-300"></i> 9876543210</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="flex items-center gap-1"><i class="fas fa-clock text-blue-300"></i> Mon–Sat: 8AM–9PM</span>
+        <a href="#" class="text-white hover:text-blue-300 transition"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white hover:text-blue-300 transition"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar sticky top-0 z-50 bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="logo-icon w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg">SV</div>
+        <div>
+          <div class="font-poppins font-800 text-xl leading-tight text-blue-900 font-bold">SV Hospital</div>
+          <div class="text-xs text-gray-500 leading-tight">Advanced Healthcare</div>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="index.html" class="nav-link font-semibold text-gray-700 hover:text-blue-700 transition font-poppins text-sm">Home</a>
+        <a href="services.html" class="nav-link active font-semibold text-blue-700 font-poppins text-sm">Services</a>
+        <a href="about.html" class="nav-link font-semibold text-gray-700 hover:text-blue-700 transition font-poppins text-sm">About Us</a>
+        <a href="contact.html" class="nav-link font-semibold text-gray-700 hover:text-blue-700 transition font-poppins text-sm">Contact</a>
+        <a href="tel:9876543210" class="emergency-btn text-white text-sm font-bold px-5 py-2 rounded-full flex items-center gap-2">
+          <i class="fas fa-phone-alt animate-pulse"></i> Emergency
+        </a>
+      </div>
+      <button id="hamburger" class="md:hidden text-gray-700 text-2xl focus:outline-none">
+        <i id="ham-icon" class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white border-t border-gray-100 px-4 pb-4">
+      <a href="index.html" class="block py-3 text-gray-700 font-semibold border-b border-gray-100 font-poppins">Home</a>
+      <a href="services.html" class="block py-3 text-blue-700 font-semibold border-b border-gray-100 font-poppins">Services</a>
+      <a href="about.html" class="block py-3 text-gray-700 font-semibold border-b border-gray-100 hover:text-blue-700 font-poppins">About Us</a>
+      <a href="contact.html" class="block py-3 text-gray-700 font-semibold border-b border-gray-100 hover:text-blue-700 font-poppins">Contact</a>
+      <a href="tel:9876543210" class="mt-3 block text-center emergency-btn text-white font-bold px-5 py-2 rounded-full"><i class="fas fa-phone-alt mr-2"></i>Emergency Call</a>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="max-w-3xl mx-auto">
+      <div class="breadcrumb text-sm mb-4 font-poppins">
+        <a href="index.html">Home</a><span>/</span><span class="text-white">Services</span>
+      </div>
+      <h1 class="font-poppins font-extrabold text-4xl md:text-5xl mb-4">Our Medical Services</h1>
+      <p class="text-blue-100 text-lg">Comprehensive, expert healthcare across all specialties — delivered with compassion and cutting-edge technology.</p>
+    </div>
+  </div>
+
+  <!-- Services Grid -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-14 animate-on-scroll">
+        <span class="section-tag">All Specialties</span>
+        <h2 class="font-poppins font-bold text-4xl text-gray-900 mt-3">What We Treat</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Cardiology -->
+        <div class="service-card p-8 rounded-2xl border border-gray-100 bg-white animate-on-scroll">
+          <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-heartbeat text-3xl text-red-500"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-xl mb-3">Cardiology</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Full cardiac care services including non-invasive diagnostics, catheterization lab, angioplasty, pacemaker implantation, and heart surgery.</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>ECG & Echocardiography</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Coronary Angioplasty</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Cardiac Surgery</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Heart Failure Management</li>
+          </ul>
+        </div>
+
+        <!-- Orthopedics -->
+        <div class="service-card p-8 rounded-2xl border border-gray-100 bg-white animate-on-scroll">
+          <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-bone text-3xl text-orange-500"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-xl mb-3">Orthopedics</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Expert bone, joint, and muscle care. From sports injuries to complex reconstructive surgeries, our orthopedic team delivers precision outcomes.</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Knee & Hip Replacement</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Spine Surgery</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Sports Medicine</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Fracture & Trauma Care</li>
+          </ul>
+        </div>
+
+        <!-- General Medicine -->
+        <div class="service-card p-8 rounded-2xl border border-gray-100 bg-white animate-on-scroll">
+          <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-stethoscope text-3xl text-blue-500"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-xl mb-3">General Medicine</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Comprehensive internal medicine covering infections, metabolic disorders, chronic diseases, and preventive care for adults.</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Diabetes Management</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Hypertension Control</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Respiratory Conditions</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Preventive Health Check-ups</li>
+          </ul>
+        </div>
+
+        <!-- Pediatrics -->
+        <div class="service-card p-8 rounded-2xl border border-gray-100 bg-white animate-on-scroll">
+          <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-baby text-3xl text-pink-500"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-xl mb-3">Pediatrics</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Comprehensive child health services in a safe, friendly environment — from newborn care to adolescent health management.</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Neonatal & NICU Care</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Vaccination Programs</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Growth & Development</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Pediatric Surgery</li>
+          </ul>
+        </div>
+
+        <!-- Emergency Care -->
+        <div class="service-card p-8 rounded-2xl border border-gray-100 bg-white animate-on-scroll">
+          <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-ambulance text-3xl text-red-600"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-xl mb-3">Emergency Care</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">24/7 emergency department with fully-equipped trauma bays, resuscitation units, and rapid-response medical teams always on standby.</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>24/7 Trauma Centre</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>ICU & Critical Care</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Ambulance Services</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Rapid Response Team</li>
+          </ul>
+        </div>
+
+        <!-- Diagnostics -->
+        <div class="service-card p-8 rounded-2xl border border-gray-100 bg-white animate-on-scroll">
+          <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-flask text-3xl text-purple-500"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-xl mb-3">Diagnostics</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">State-of-the-art diagnostic centre offering fast and accurate imaging, lab work, and pathology for timely clinical decisions.</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>MRI & CT Scan</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Digital X-Ray & Ultrasound</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Full Blood Lab Work</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Home Sample Collection</li>
+          </ul>
+        </div>
+
+        <!-- Neurology -->
+        <div class="service-card p-8 rounded-2xl border border-gray-100 bg-white animate-on-scroll">
+          <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-brain text-3xl text-indigo-500"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-xl mb-3">Neurology</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Expert neurological care for brain, spinal cord, and nervous system disorders with advanced neuro-diagnostics and surgical capabilities.</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Stroke Management</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Epilepsy Treatment</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>EEG & EMG</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Migraine Management</li>
+          </ul>
+        </div>
+
+        <!-- Gynecology -->
+        <div class="service-card p-8 rounded-2xl border border-gray-100 bg-white animate-on-scroll">
+          <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-venus text-3xl text-rose-500"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-xl mb-3">Gynecology & Obstetrics</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Complete women's healthcare from routine check-ups and antenatal care to complex gynecological surgeries in a caring environment.</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Antenatal & Postnatal</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Normal & C-Section Delivery</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Laparoscopic Surgery</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Fertility Consultations</li>
+          </ul>
+        </div>
+
+        <!-- Ophthalmology -->
+        <div class="service-card p-8 rounded-2xl border border-gray-100 bg-white animate-on-scroll">
+          <div class="service-icon w-16 h-16 rounded-2xl flex items-center justify-center mb-5">
+            <i class="fas fa-eye text-3xl text-cyan-500"></i>
+          </div>
+          <h3 class="font-poppins font-bold text-xl mb-3">Ophthalmology</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Comprehensive eye care including refractive error correction, cataract surgery, retinal treatment, and glaucoma management.</p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Cataract Surgery</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>LASIK / Refractive Surgery</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Glaucoma Treatment</li>
+            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-blue-500 text-xs"></i>Retinal Care</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment CTA -->
+  <section class="cta-banner py-16">
+    <div class="max-w-4xl mx-auto px-6 text-center animate-on-scroll">
+      <h2 class="font-poppins font-bold text-4xl text-white mb-4">Book a Consultation Today</h2>
+      <p class="text-blue-100 mb-8 text-lg">Our specialists are available Mon–Sat. Emergency services run 24/7.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="contact.html" class="bg-white text-blue-700 font-bold px-8 py-4 rounded-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 inline-flex items-center gap-2">
+          <i class="fas fa-calendar-check"></i> Book Appointment
+        </a>
+        <a href="tel:9876543210" class="border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-blue-700 transition-all duration-300 inline-flex items-center gap-2">
+          <i class="fas fa-phone-alt"></i> 9876543210
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-bg text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+        <div>
+          <div class="flex items-center gap-2 mb-5">
+            <div class="logo-icon w-10 h-10 rounded-full flex items-center justify-center text-white font-bold">SV</div>
+            <div class="font-poppins font-bold text-xl">SV Hospital</div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">Dedicated to delivering compassionate, world-class healthcare to the people of Hyderabad since 2006.</p>
+          <div class="flex gap-3">
+            <a href="#" class="w-9 h-9 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-facebook-f text-sm"></i></a>
+            <a href="#" class="w-9 h-9 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-instagram text-sm"></i></a>
+            <a href="#" class="w-9 h-9 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-youtube text-sm"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-poppins font-bold text-lg mb-5">Quick Links</h4>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li><a href="index.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Home</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Services</a></li>
+            <li><a href="about.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>About Us</a></li>
+            <li><a href="contact.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Contact</a></li>
+            <li><a href="#" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-poppins font-bold text-lg mb-5">Our Services</h4>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Cardiology</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Orthopedics</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Pediatrics</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Emergency Care</a></li>
+            <li><a href="services.html" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-blue-400"></i>Diagnostics</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-poppins font-bold text-lg mb-5">Contact Us</h4>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>Rampally, Hyderabad, Telangana – 501301</li>
+            <li class="flex items-center gap-3"><i class="fas fa-phone text-blue-400"></i><a href="tel:9876543210" class="hover:text-white transition">9876543210</a></li>
+            <li class="flex items-center gap-3"><i class="fas fa-envelope text-blue-400"></i>info@svhospital.in</li>
+            <li class="flex items-start gap-3"><i class="fas fa-clock text-blue-400 mt-1"></i>Mon – Sat: 8:00 AM – 9:00 PM<br/>Emergency: 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-blue-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+        <div>© 2026 SV Hospital. All rights reserved.</div>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-white transition">Privacy Policy</a>
+          <span>|</span>
+          <a href="#" class="hover:text-white transition">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Buttons -->
+  <a href="https://wa.me/919876543210" target="_blank" class="fixed bottom-6 right-6 z-50 whatsapp-float w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+    <i class="fab fa-whatsapp text-2xl text-white"></i>
+  </a>
+  <a href="tel:9876543210" class="fixed bottom-24 right-6 z-50 call-float w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+    <i class="fas fa-phone text-xl text-white"></i>
+  </a>
+  <button id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="main.js"></script>
+</body>
+</html>
